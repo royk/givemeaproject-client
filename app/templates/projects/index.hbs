@@ -1,0 +1,7 @@
+<h2>Projects list</h2>
+{{#each project in controller}}
+	{{#link-to 'project.edit' project}}
+		{{project.name}}
+	{{/link-to}}
+{{/each}}
+{{outlet}}
