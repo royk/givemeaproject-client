@@ -1,11 +1,5 @@
-import SlEmberModel from 'sl-ember-store/model';
+import DS from "ember-data";
 
-var User = SlEmberModel.extend({
-
+export default DS.Model.extend({
+	email: DS.attr("string")
 });
-
-User.reopenClass({
-    url    : '/users'
-});
-
-export default User;

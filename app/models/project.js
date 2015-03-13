@@ -1,15 +1,5 @@
-import SlEmberModel from 'sl-ember-store/model';
-import {genericSerializer} from 'openquip/models/genericSerializer';
+import DS from "ember-data";
 
-
-var serializer = genericSerializer;
-var Project = SlEmberModel.extend({
-
+export default DS.Model.extend({
+	name: DS.attr("string")
 });
-
-Project.reopenClass({
-    url: "/projects",
-    serializer: serializer
-});
-
-export default Project;
