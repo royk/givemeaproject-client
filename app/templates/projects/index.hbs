@@ -1,18 +1,21 @@
 <h2>Projects list</h2>
 <ul>
-	{{#each project in controller}}
-		<li>
-			{{#link-to 'project.edit' project}}
-				{{project.name}}
-			{{/link-to}}	
-			<button {{action "deleteProject" project}}>
-				Delete
-			</button>
-			
-		</li>
-	{{/each}}
-	<button {{action "createProject"}}>
-		Create Project
-	</button>
+  {{#each project in controller}}
+      <li>
+        {{#link-to 'project.index' project}}
+          {{project.name}}
+        {{/link-to}}
+        {{#link-to 'project.edit' project}}
+            <button>Edit</button>
+        {{/link-to}}
+          <button {{action "deleteProject" project}}>
+              Delete
+          </button>
+
+      </li>
+  {{/each}}
+    <button {{action "createProject"}}>
+        Create Project
+    </button>
 </ul>
 {{outlet}}
