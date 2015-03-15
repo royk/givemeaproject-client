@@ -17,5 +17,7 @@
     <button {{action "createProject"}}>
         Create Project
     </button>
+    {{input val=searchTerm}}
+    <button {{action "performSearch"}}>Search</button>
 </ul>
 {{outlet}}
