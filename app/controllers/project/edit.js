@@ -4,6 +4,9 @@ export default Ember.ObjectController.extend({
   platforms: function() {
     return this.store.find("platform");
   }.property(),
+  selectedPlatform: function() {
+    return this.get("model.platform.id");
+  }.property("model.platform.id"),
 	actions: {
 		save: function() {
       var tags = this.get("model.description");
@@ -12,8 +15,10 @@ export default Ember.ObjectController.extend({
         tags = tags.split(" ");
         this.set("model.tags", tags);
       }
-      this.set("model.platform", this.get("platform.id"));
-			this.get("model").save();
+      this.store.find("platform", this.get("selectedPlatform")).then((function(record) {
+        this.set("model.platform", record);
+        this.get("model").save();
+      }).bind(this));
 		}
 	}
 });

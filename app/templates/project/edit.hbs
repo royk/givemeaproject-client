@@ -2,6 +2,6 @@
 {{input value=name}}
 {{input value=description}}
 <div>{{tags}}</div>
-{{view "select" content=platforms selection=platform optionLabelPath="content.name" optionValuePath="content.id"}}
+{{view "select" content=platforms value=selectedPlatform optionLabelPath="content.name" optionValuePath="content.id"}}
 <button {{action "save"}}>Save</button>
 
